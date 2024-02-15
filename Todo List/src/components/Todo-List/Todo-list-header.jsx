@@ -6,7 +6,7 @@ export default function TodoListHeader({ todos, setTodos }) {
     task: "",
     id: "All",
     finished: false,
-    finishedAttribute() {
+    finishedAttribute: function () {
       const [isFinished, setIsFinished] = useState(false);
       setIsFinished(isFinished == false);
       this.finished = isFinished;
@@ -22,7 +22,16 @@ export default function TodoListHeader({ todos, setTodos }) {
         placeholder="Add a new task"
         value={actualTask.task}
         onChange={(e) => {
-          setActualTask({ task: e.target.value, id: "All", finished: false });
+          setActualTask({
+            task: e.target.value,
+            id: "All",
+            finished: false,
+            finishedAttribute: function () {
+              const [isFinished, setIsFinished] = useState(false);
+              setIsFinished(isFinished == false);
+              this.finished = isFinished;
+            },
+          });
         }}
       />
 
@@ -32,7 +41,17 @@ export default function TodoListHeader({ todos, setTodos }) {
           actualTask.task.split("").join("") != "" &&
             setTodos([...todos, actualTask]);
 
-          setActualTask({ ...actualTask, task: "", id: "All" });
+          setActualTask({
+            ...actualTask,
+            task: "",
+            id: "All",
+            finished: false,
+            finishedAttribute: function () {
+              const [isFinished, setIsFinished] = useState(false);
+              setIsFinished(isFinished == false);
+              this.finished = isFinished;
+            },
+          });
         }}
       >
         <ListPlus className="text-gray-500 hover:text-violet-700" size="25" />
