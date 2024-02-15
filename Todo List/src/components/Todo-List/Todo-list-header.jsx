@@ -2,7 +2,16 @@ import { ListPlus } from "lucide-react";
 import { useState } from "react";
 
 export default function TodoListHeader({ todos, setTodos }) {
-  const [actualTask, setActualTask] = useState({task:'', id:'All', finished:false});
+  const [actualTask, setActualTask] = useState({
+    task: "",
+    id: "All",
+    finished: false,
+    finishedAttribute() {
+      const [isFinished, setIsFinished] = useState(false);
+      setIsFinished(isFinished == false);
+      this.finished = isFinished;
+    },
+  });
 
   return (
     <header className="w-[100%] py-5 relative">
@@ -13,7 +22,7 @@ export default function TodoListHeader({ todos, setTodos }) {
         placeholder="Add a new task"
         value={actualTask.task}
         onChange={(e) => {
-          setActualTask({task:e.target.value, id:"All", finished:false});
+          setActualTask({ task: e.target.value, id: "All", finished: false });
         }}
       />
 
@@ -22,8 +31,8 @@ export default function TodoListHeader({ todos, setTodos }) {
         onClick={() => {
           actualTask.task.split("").join("") != "" &&
             setTodos([...todos, actualTask]);
-          // console.log(todos);
-          setActualTask({task:'', id:'All', finished:false});
+
+          setActualTask({ ...actualTask, task: "", id: "All" });
         }}
       >
         <ListPlus className="text-gray-500 hover:text-violet-700" size="25" />

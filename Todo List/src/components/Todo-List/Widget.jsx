@@ -4,7 +4,7 @@ import TodoListHeader from './Todo-list-header';
 
 import TodoListFilter from './Todo-list-filter';
 
-import TodoListTasks from './Todo-list-tasks';
+import TodoListTasks from './tasks/Todo-list-tasks';
 
 export const TodoList = {
   Root: TodoListRoot,
