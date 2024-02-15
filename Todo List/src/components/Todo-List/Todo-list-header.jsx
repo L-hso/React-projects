@@ -4,13 +4,7 @@ import { useState } from "react";
 export default function TodoListHeader({ todos, setTodos }) {
   const [actualTask, setActualTask] = useState({
     task: "",
-    id: "All",
-    finished: false,
-    finishedAttribute: function () {
-      const [isFinished, setIsFinished] = useState(false);
-      setIsFinished(isFinished == false);
-      this.finished = isFinished;
-    },
+    id: "All"
   });
 
   return (
@@ -24,13 +18,7 @@ export default function TodoListHeader({ todos, setTodos }) {
         onChange={(e) => {
           setActualTask({
             task: e.target.value,
-            id: "All",
-            finished: false,
-            finishedAttribute: function () {
-              const [isFinished, setIsFinished] = useState(false);
-              setIsFinished(isFinished == false);
-              this.finished = isFinished;
-            },
+            id: "All"
           });
         }}
       />
@@ -44,13 +32,7 @@ export default function TodoListHeader({ todos, setTodos }) {
           setActualTask({
             ...actualTask,
             task: "",
-            id: "All",
-            finished: false,
-            finishedAttribute: function () {
-              const [isFinished, setIsFinished] = useState(false);
-              setIsFinished(isFinished == false);
-              this.finished = isFinished;
-            },
+            id: "All"
           });
         }}
       >
