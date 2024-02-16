@@ -9,8 +9,6 @@ export default function TodoListTasks({ todos, tab }) {
         <TodoListTask
           task={todo.task}
           ind={index}
-          finished={false}
-          confirmFinish={todo.finishedAttribute}
         />
       ))}
     </ul>
