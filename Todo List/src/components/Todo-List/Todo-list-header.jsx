@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function TodoListHeader({ todos, setTodos }) {
   const [actualTask, setActualTask] = useState({
     task: "",
-    id: "All"
+    id: "All",
   });
 
   return (
@@ -12,13 +12,14 @@ export default function TodoListHeader({ todos, setTodos }) {
       <input
         type="text"
         id="input"
-        className="h-11 pl-4 text-[0.85rem] outline-none focus:placeholder:invisible w-[100%] border-[#999] border-[1px] rounded-2xl"
+        className="h-11 pl-4 text-[0.85rem] outline-none focus:placeholder:invisible w-[100%] border-[#999] border-[1px] rounded-2xl text-[0.90rem]"
         placeholder="Add a new task"
+        maxLength={17}
         value={actualTask.task}
         onChange={(e) => {
           setActualTask({
             task: e.target.value,
-            id: "All"
+            id: "All",
           });
         }}
       />
@@ -32,7 +33,7 @@ export default function TodoListHeader({ todos, setTodos }) {
           setActualTask({
             ...actualTask,
             task: "",
-            id: "All"
+            id: "All",
           });
         }}
       >
