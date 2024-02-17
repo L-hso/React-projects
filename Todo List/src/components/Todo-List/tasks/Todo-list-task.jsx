@@ -1,25 +1,38 @@
-import { Trash2 } from "lucide-react";
+import { useRef } from 'react';
 
-export default function TodoListTask({ task, ind }) {
+export default function TodoListTask({ task, ind, display, todos }) {
+
+  const taskRef = useRef();
+
   return (
-    <li key={ind} className={"p-3.5 w-[100%] rounded-xl border-zinc-400 border-[.05rem] flex justify-between bg-white"}>
+    <li
+      key={ind}
+      ref={taskRef}
+      style={{display}}
+      className={
+        "p-3.5 w-[100%] rounded-xl border-zinc-400 border-[.05rem] flex justify-between bg-white"
+      }
+    >
       <label className="flex items-center text-[.90rem] gap-2">
         <input
           type="checkbox"
           className="rounded w-4 h-4"
           onChange={(e) => {
-            const task_li = e.target.parentNode.parentNode;
-            task_li.classList.toggle("All");
-
             const task_label = e.target.parentNode;
 
             task_label.classList.toggle("line-through");
+
             task_label.classList.toggle("text-gray-400");
+            
+            todos[ind].id = todos[ind].id == "All" ? "Finished" : "All";
+            
           }}
         />
         {task}
       </label>
-      <button className="">
+      <button
+        onClick={() => taskRef.current.parentNode.removeChild(taskRef.current)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
