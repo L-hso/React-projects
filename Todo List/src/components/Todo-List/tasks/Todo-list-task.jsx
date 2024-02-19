@@ -7,7 +7,7 @@ export default function TodoListTask({ task, ind, display, todos }) {
   return (
     <li
       key={ind}
-      ref={taskRef}
+       ref={taskRef}
       style={{display}}
       className={
         "p-3.5 w-[100%] rounded-xl border-zinc-400 border-[.05rem] flex justify-between bg-white"
