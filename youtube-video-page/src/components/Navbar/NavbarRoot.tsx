@@ -1,20 +1,24 @@
 import { Dispatch, ReactNode } from "react";
+
 import { Menu } from "lucide-react";
-interface NavbarRoot{
+interface NavbarRoot {
   children: ReactNode;
-  setState: Dispatch<boolean>;
-  state: boolean;
+  toggleMenuVisibility: Dispatch<boolean>;
+  menuVisibility: boolean;
 }
 
 export function NavbarRoot({
   children,
-  state,
-  setState,
+  menuVisibility,
+  toggleMenuVisibility,
 }: NavbarRoot) {
   return (
-    <nav className="w-full p-2 bg-zinc-900 top-0">
-      <button onClick={(): void => setState(state == false)}>
-        <Menu color={"#efefef"} size={32} strokeWidth={1.5} />
+    <nav className="w-full p-1.5 bg-youtube-darkest sticky top-0 flex items-center ">
+      <button
+        className="px-2 py-2 rounded-full hover:bg-youtube-dark"
+        onClick={(): void => toggleMenuVisibility(menuVisibility == false)}
+      >
+        <Menu color={"#efefef"} size={26} strokeWidth={1.75} />
       </button>
       {children}
     </nav>

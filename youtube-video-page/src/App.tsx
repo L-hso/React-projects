@@ -1,14 +1,18 @@
 import { useState } from "react";
-import { Navbar } from "./components/Navbar/Navbar";
+import { Navbar } from "./components/Navbar/NavbarWidget";
 
 function App() {
-  const [state, setState] = useState(false)
+  const [menuVisibility, setMenuVisibility] = useState(false);
+
   return (
     <header className="w-screen h-screen flex-col flex">
-      <Navbar.Root state={state} setState={setState}>
+      <Navbar.Root
+        menuVisibility={menuVisibility}
+        toggleMenuVisibility={setMenuVisibility}
+      >
         <></>
       </Navbar.Root>
-      <Navbar.Aside state={state}/>
+      <Navbar.Aside visible={menuVisibility} />
     </header>
   );
 }

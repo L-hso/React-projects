@@ -5,7 +5,15 @@ export default {
     "./src/**/*.tsx"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        'youtube-darkest':'#232323',
+        'youtube-dark':'#333333',
+        'youtube-gray':'#3d3d3d',
+        'youtube-light-gray':'#aaaaaa'
+      },
+
+    },
   },
   plugins: [],
 }
