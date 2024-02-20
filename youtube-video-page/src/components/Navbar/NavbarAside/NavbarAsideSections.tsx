@@ -1,9 +1,5 @@
 import { ReactNode } from "react";
 
-type sectionOptionsIcons={
-  [key:string]:object;
-}
-
 interface NavbarAsideSection {
   sectionName: string
 }
